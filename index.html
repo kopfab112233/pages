@@ -2,27 +2,90 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Geheime Seite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Zugang</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f8f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
       padding: 2rem;
-      background-color: #121212;
-      color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
       text-align: center;
     }
-  </style>
-  <script>
-    const correctPassword = "Test123"; // ÄNDERE das Passwort hier
 
-    const userPassword = prompt("🔒 Bitte Passwort eingeben:");
-    if (userPassword !== correctPassword) {
-      document.body.innerHTML = "<h2>🚫 Zugriff verweigert.</h2>";
+    h1 {
+      color: #fffc00;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
     }
-  </script>
+
+    input[type="password"] {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      background-color: #fffc00;
+      border: none;
+      color: #000;
+      font-weight: bold;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #f4eb00;
+    }
+
+    .error {
+      color: red;
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>🎉 Willkommen auf deiner geheimen Seite</h1>
-  <p>Du hast erfolgreich das richtige Passwort eingegeben!</p>
+  <div class="container">
+    <h1>🔒 Sicherer Zugang</h1>
+    <input type="password" id="pw" placeholder="Passwort eingeben" />
+    <button onclick="checkPassword()">Login</button>
+    <div id="error" class="error"></div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const pw = document.getElementById("pw").value;
+      const error = document.getElementById("error");
+
+      if (pw === "geheim") {
+        document.body.innerHTML = `
+          <div class="container">
+            <h1>✅ Willkommen!</h1>
+            <p>Du hast erfolgreich das richtige Passwort eingegeben.</p>
+          </div>
+        `;
+      } else {
+        error.textContent = "❌ Falsches Passwort.";
+      }
+    }
+  </script>
 </body>
 </html>
