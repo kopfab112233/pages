@@ -2,10 +2,28 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Meine geheime Seite</title>
+  <title>Geheime Seite</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #121212;
+      color: #ffffff;
+      text-align: center;
+    }
+  </style>
+  <script>
+    const correctPassword = "Test123"; // ÄNDERE das Passwort hier
+
+    const userPassword = prompt("🔒 Bitte Passwort eingeben:");
+    if (userPassword !== correctPassword) {
+      document.body.innerHTML = "<h2>🚫 Zugriff verweigert.</h2>";
+    }
+  </script>
 </head>
 <body>
-  <h1>Willkommen auf meiner geheimen Website 🌐</h1>
-  <p>Diese Seite ist nur über den Direktlink erreichbar.</p>
+  <h1>🎉 Willkommen auf deiner geheimen Seite</h1>
+  <p>Du hast erfolgreich das richtige Passwort eingegeben!</p>
 </body>
 </html>
+
