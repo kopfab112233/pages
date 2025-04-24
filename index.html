@@ -82,10 +82,19 @@
       <input type="text" name="name" placeholder="Dein Name" required />
       <input type="email" name="email" placeholder="Deine E-Mail" required />
       <input type="password" name="password" placeholder="Passwort eingeben" required />
+      <label style="display: block; margin-top: 0.5rem; font-size: 0.95rem;">
+        <input type="checkbox" onclick="togglePassword()"> Passwort anzeigen
+      </label>
       <input type="hidden" name="_redirect" value="https://kopfab112233.github.io/pages/danke.html">
       <button type="submit">Absenden</button>
     </form>
     <div class="footer-text">🔒 Deine Eingaben werden sicher verarbeitet.</div>
   </div>
+<script>
+  function togglePassword() {
+    const passwordInput = document.querySelector('input[name="password"]');
+    passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+  }
+</script>
 </body>
 </html>
